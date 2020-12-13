@@ -71,16 +71,15 @@ JMETER_ARGS="${JMETER_ARGS} -Jyt.path.dataset.created_projects=${OUTPUT_DATA_DIR
 JMETER_ARGS="${JMETER_ARGS} -Jyt.path.dataset.created_users=${OUTPUT_DATA_DIR}/${CREATED_DATASET_PREFIX}created_users.csv"
 JMETER_ARGS="${JMETER_ARGS} -Jyt.path.dataset.created_issues=${OUTPUT_DATA_DIR}/${CREATED_DATASET_PREFIX}created_issues.csv"
 JMETER_ARGS="${JMETER_ARGS} -Jyt.path.dataset.created_links=${OUTPUT_DATA_DIR}/${CREATED_DATASET_PREFIX}issue_links.csv"
-#JMETER_ARGS="${JMETER_ARGS} -Jsummariser.ignore_transaction_controller_sample_result=false"
 
 # Set Java heap size
-export HEAP="-Xms1g -Xmx4g -XX:MaxMetaspaceSize=256m"
+HEAP="-Xms1g -Xmx3g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError"
+
+# Enable GC verbose
+VERBOSE_GC="-Xlog:gc*,gc+age=trace,gc+heap=debug:file=${OUTPUT_DATA_DIR}/${RUN_ID}_gc_jmeter_%p.log"
 
 # Create output dir if not exists
 [ -d "$OUTPUT_DATA_DIR" ] || mkdir "$OUTPUT_DATA_DIR"
 
-# Enable GC verbose
-# export VERBOSE_GC="-Xlog:gc*,gc+age=trace,gc+heap=debug:file=${OUTPUT_DATA_DIR}/${RUN_ID}_gc_jmeter_%p.log"
-
 # Run JMeter
-${JMETER_HOME}/bin/jmeter.sh $JMETER_ARGS
+JVM_ARGS="${HEAP} ${VERBOSE_GC}" ${JMETER_HOME}/bin/jmeter.sh $JMETER_ARGS
