@@ -1,0 +1,3 @@
+project_keys=['WOQ']
+users_by_project={'WOQ': ['Storm Jedediah', 'Erwin Rupert', 'Izidora Camille', 'Lou Megan', 'Jersey Ozzie', 'Ahmed Timothy', 'Mei Pansy', 'Anneke Jazz', 'Lorenzo Lloyd', 'Barbara Ceri']}
+issue_count_by_project={'WOQ': 1000}
