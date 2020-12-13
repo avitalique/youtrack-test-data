@@ -1,0 +1,3 @@
+project_keys=['XNI']
+users_by_project={'XNI': ['Ulrich Hubert']}
+issue_count_by_project={'XNI': 10}
