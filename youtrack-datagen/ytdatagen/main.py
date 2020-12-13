@@ -49,7 +49,7 @@ def main(total_projects=1, total_users=1, total_issues=10):
             # writer.to_json(dataset, f'{alias}.json')
             pass
 
-    if config.DEBUG_MODE:
+    if config.DEBUG_MODE or config.VERBOSE:
         print(f'projects={projects}')
         print(f'project_keys={project_keys}')
         print(f'users={users}')
@@ -74,6 +74,8 @@ def get_cli_args():
                         help='Save data to CSV files as JSON strings')
     parser.add_argument('--csv-import', dest='is_csv_import', action='store_true',
                         help='Save data to CSV files according to YouTrack import scripts requirements')
+    parser.add_argument('--verbose', dest='is_verbose', action='store_true',
+                        help='Print meta info to stdout')
     parser.add_argument('--debug', dest='debug_mode', action='store_true',
                         help='Run in debug mode. Generated data will not be saved to files, but printed to stdout')
 
@@ -103,6 +105,7 @@ def get_cli_args():
         parser.exit(2, f'{parser.prog}: error: missing arguments: {", ".join(missing)}')
 
     config.DEBUG_MODE = args.debug_mode
+    config.VERBOSE = args.is_verbose
     config.IS_JMETER = args.is_jmeter
     config.IS_CSV_IMPORT = args.is_csv_import
 

@@ -8,5 +8,6 @@ NORMAL_PRIORITY_PROBABILITY = 0.5
 
 # Vars below are set from CLI args
 DEBUG_MODE = None
+VERBOSE = None
 IS_CSV_IMPORT = None
 IS_JMETER = None
