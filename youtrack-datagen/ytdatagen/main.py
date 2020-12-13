@@ -106,7 +106,7 @@ def get_cli_args():
     config.IS_JMETER = args.is_jmeter
     config.IS_CSV_IMPORT = args.is_csv_import
 
-    if not config.IS_CSV_IMPORT:  # and not config.DEBUG_MODE:
+    if not config.IS_CSV_IMPORT and not config.DEBUG_MODE:
         config.IS_JMETER = True
 
     return projects_num, users_num, issues_num
