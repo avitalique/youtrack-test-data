@@ -1486,6 +1486,15 @@ vars.put(&quot;userGuid&quot;, user.userGuid)</stringProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="true"/>
+        <hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="PauseDeleteProjects" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">${__P(yt.delete.projects.wait_ms,60000)}</stringProp>
+          </TestAction>
+          <hashTree/>
+        </hashTree>
         <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="SkipDeleteOnCondition" enabled="true">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
@@ -1519,6 +1528,10 @@ vars.put(&quot;userGuid&quot;, user.userGuid)</stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">10000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
             <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="DeleteProject: Read JSON" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
