@@ -49,7 +49,7 @@ def main(total_projects=1, total_users=1, total_issues=10):
             # writer.to_json(dataset, f'{alias}.json')
             pass
 
-    if config.DEBUG_MODE or config.VERBOSE:
+    if config.VERBOSE or config.DEBUG_MODE:
         print(f'projects={projects}')
         print(f'project_keys={project_keys}')
         print(f'users={users}')
@@ -62,7 +62,7 @@ def main(total_projects=1, total_users=1, total_issues=10):
 def get_cli_args():
     """Parse CLI arguments"""
     parser = argparse.ArgumentParser(
-        prog='yt-test-data',
+        prog='ytdatagen',
         description='Test data generator for YouTrack',
     )
     parser.add_argument('-p', type=int, dest='projects_num', help='number of projects')
