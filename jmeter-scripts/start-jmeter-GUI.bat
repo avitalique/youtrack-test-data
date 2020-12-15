@@ -79,11 +79,12 @@ echo Missing argument CREATED_DATASET_PREFIX
 goto PrintUsage
 
 :PrintUsage
-echo "Usage: run-jmeter.bat {create|delete} [CREATED_DATASET_PREFIX]"
+echo "Usage: start-jmeter-GUI.bat {create|delete} [CREATED_DATASET_PREFIX]"
 echo.
-echo 	run-jmeter.bat create
-echo		run-jmeter.bat delete YT_20201212-1249
+echo 	start-jmeter-GUI.bat create
+echo		start-jmeter-GUI.bat delete YT_20201212-1249
 echo.
 pause
 
 :End
+exit
